@@ -6,14 +6,21 @@ A command-line application that predicts whether a vehicle can be on the road ba
 
 This project implements a predictor for Quito's vehicle circulation restrictions. The system determines if a vehicle with a specific license plate number can circulate on a given date and time, following the official "Pico y Placa" regulations.
 
-## Problem statement
+## Problem Statement
 
 The "Pico y Placa" is a traffic regulation in Quito that restricts vehicle circulation based on the last digit of the license plate number, the day of the week, and specific time windows during the day.
 
 The application will:
 - Accept a license plate number (e.g., PBX-1234)
-- Accept a date and time
+- Accept a date in **DD/MM/YYYY** or **DD-MM-YYYY** format (e.g., 15/03/2024 or 15-03-2024)
+- Accept a time in **HH:MM** 24-hour format (e.g., 08:30, 17:00)
 - Return whether the vehicle can be on the road or not
+
+### Input Format Requirements
+
+- **Date**: DD/MM/YYYY or DD-MM-YYYY (e.g., "15/03/2024", "15-03-2024")
+- **Time**: HH:MM in 24-hour format (e.g., "08:30", "17:00")
+- **License Plate**: Ecuadorian format with 3 letters, hyphen, and 4 digits (e.g., "PBX-1234")
 
 ## Technologies
 

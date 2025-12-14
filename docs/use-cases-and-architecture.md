@@ -38,8 +38,8 @@ Outside these time windows, all vehicles can circulate freely.
 
 **Input:**
 - License plate number (e.g., "PBX-1234")
-- Date (e.g., "2024-03-15" or "15/03/2024")
-- Time (e.g., "08:30" or "8:30 AM")
+- Date in format DD/MM/YYYY or DD-MM-YYYY (e.g., "15/03/2024" or "15-03-2024")
+- Time in 24-hour format HH:MM (e.g., "08:30", "17:00")
 
 **Process:**
 1. System receives the license plate number
@@ -81,43 +81,27 @@ Outside these time windows, all vehicles can circulate freely.
 
 ---
 
-### UC2: Handle Different Date Formats
-
-**Actor:** User
-
-**Description:** Users from different regions may input dates in various formats.
-
-**Input Examples:**
-- "2024-03-15" (ISO format)
-- "15/03/2024" (DD/MM/YYYY)
-- "03/15/2024" (MM/DD/YYYY)
-- "15-Mar-2024"
-
-**Process:**
-1. System attempts to parse the date string
-2. System recognizes the format
-3. System converts to a standard internal representation
-4. System proceeds with validation
-
----
-
-### UC3: Handle Invalid Inputs
+### UC2: Handle Invalid Inputs
 
 **Actor:** User
 
 **Description:** Users may provide incorrect or malformed data.
 
-**Invalid inputs:**
+**Invalid Inputs:**
 - Plate: "123" (too short)
-- Plate: "ABCDEFGH" (no numbers)
+- Plate: "ABCDEFGH" (no numbers)  
+- Date: "2024-03-15" (wrong format, use DD/MM/YYYY or DD-MM-YYYY)
 - Date: "99/99/9999" (invalid date)
 - Time: "25:00" (invalid time)
+- Time: "8:30 AM" (wrong format, use 24-hour HH:MM)
 
 **Process:**
 1. System validates each input
 2. System detects the error
 3. System returns a clear error message
-4. System explains what format is expected
+4. System explains the expected format:
+   - Date must be DD/MM/YYYY or DD-MM-YYYY
+   - Time must be HH:MM in 24-hour format
 
 ---
 
@@ -155,15 +139,16 @@ Users can make mistakes when typing. We need to verify:
 
 #### 3. **Data transformation** (Parsers)
 
-Different users prefer different formats:
+Users input data as strings that need conversion:
 
-- **Date parser**: Converts string dates to Date objects
-  - Handles multiple formats (ISO, European, American)
+- **Date Parser**: Converts string dates to Date objects
+  - Accepts DD/MM/YYYY or DD-MM-YYYY formats
   - Extracts day of week information
+  - Validates date correctness (e.g., no 32/01/2024)
 
-- **Time parser**: Converts string times to a comparable format
-  - Handles "8:30 AM", "08:30", "20:30"
-  - Converts to minutes for easy comparison
+- **Time Parser**: Converts string times to a comparable format
+  - Accepts 24-hour format HH:MM (e.g., "08:30", "17:00")
+  - Converts to minutes for easy comparison with restriction windows
 
 **Why separate parsers?** Parsing logic can be complex. Isolating it makes the code easier to understand and maintain.
 
