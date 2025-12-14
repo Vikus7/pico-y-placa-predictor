@@ -1,5 +1,7 @@
 # Use cases and Architecture analysis
 
+This is a Requirements Analysis document created by Victor Rodriguez.
+
 ## Problem Context
 
 In Quito, Ecuador, the Pico y Placa regulation restricts vehicle circulation to reduce traffic congestion. The restriction depends on three factors:
