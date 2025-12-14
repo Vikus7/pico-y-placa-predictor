@@ -6,7 +6,7 @@ A command-line application that predicts whether a vehicle can be on the road ba
 
 This project implements a predictor for Quito's vehicle circulation restrictions. The system determines if a vehicle with a specific license plate number can circulate on a given date and time, following the official "Pico y Placa" regulations.
 
-## Problem Statement
+## Problem statement
 
 The "Pico y Placa" is a traffic regulation in Quito that restricts vehicle circulation based on the last digit of the license plate number, the day of the week, and specific time windows during the day.
 
@@ -18,22 +18,61 @@ The application will:
 ## Technologies
 
 - **JavaScript (ES6+)**: Core programming language
-- **Node.js**: Runtime environment for execution
-- **Jest**: Testing framework
-- **Git**: Version control
+- **Node.js**: Runtime environment for script execution
+- **Jest**: Testing framework for unit and integration tests
+- **Git**: Version control system
+
+### Why Node.js?
+
+This project is written in pure JavaScript and runs as a console application using **Node.js**. While it's not a Node.js project in the traditional sense (no web server, no Express, etc.), Node.js is required to execute the JavaScript files outside of a browser environment.
+
+Node.js provides:
+- JavaScript runtime for command-line execution
+- Access to file system and console I/O
+- Module system for organizing code
+- NPM for managing development dependencies (like Jest)
+
+## Project Structure
+
+```
+pico-y-placa-predictor/
+├── docs/                           # Documentation
+│   └── use-cases-and-architecture.md
+├── src/                            # Source code
+│   ├── models/                     # Domain models
+│   ├── validators/                 # Input validators
+│   ├── parsers/                    # Data parsers
+│   ├── services/                   # Business logic
+│   ├── cli/                        # Command-line interface
+│   └── index.js                    # Entry point
+├── tests/                          # Test files
+│   ├── unit/                       # Unit tests
+│   └── integration/                # Integration tests
+├── package.json                    # Project configuration
+└── README.md                       # This file
+```
+
+## Documentation
+
+- **[Use Cases and Architecture](docs/use-cases-and-architecture.md)**: Detailed analysis of the problem domain, use cases, and architectural decisions
 
 ## Development Approach
 
 This project follows:
 - Object-Oriented Programming (OOP) paradigm
-- Clean Code principles
 - Incremental development with meaningful commits
-- Test-Driven Development (TDD)
 - Conventional Commits standard
+- Separation of concerns architecture
 
 ## Project Status
 
-🚧 **In Development** - Initial setup phase
+🚧 **In Development** - Project structure setup complete
+
+### Current Phase
+- ✅ Initial repository setup
+- ✅ Project structure defined
+- ✅ Dependencies configured
+- ⏳ Feature implementation (upcoming)
 
 ---
 
